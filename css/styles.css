@@ -83,6 +83,10 @@ header {
   font-weight: 500;
   letter-spacing: 0.02em;
   text-decoration: none;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-nav .item + .item {
   margin-left: 50px;
@@ -96,18 +100,7 @@ header {
 .site-nav .item {
   position: relative;
 }
-.site-nav .item.current::after {
-  position: absolute;
-  bottom: -1px;
-  border-radius: 2px;
-  content: '';
-  display: block;
-  width: 100%;
-  height: 4px;
-  background-color: var(--accent-color);
-}
-.site-nav .item:hover::after,
-.site-nav .item:focus::after {
+.site-nav .link.current::after {
   position: absolute;
   bottom: -1px;
   border-radius: 2px;
@@ -136,6 +129,10 @@ header {
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
   text-decoration: none;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .auth-nav .link:hover,
@@ -195,6 +192,9 @@ header {
   line-height: 1.6;
   text-decoration: none;
   cursor: pointer;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter-buttons .button:hover,
 .filter-buttons .button:focus {
@@ -366,6 +366,9 @@ header {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-link:hover,
 .social-link:focus {
@@ -403,6 +406,9 @@ header {
   color: #afb1b8;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-logo {
   fill: currentColor;
@@ -411,6 +417,8 @@ header {
 .clients-link:focus {
   color: var(--accent-color);
   border-color: var(--accent-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 /* Footer */
 .footer .logo {
@@ -436,6 +444,8 @@ footer {
   display: inline-block;
   color: var(--adress-text-color);
   text-decoration: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .auth .item:not(:last-child) {
   margin-bottom: 9px;
@@ -473,6 +483,8 @@ footer {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-social-link:hover,
 .footer-social-link:focus {
@@ -516,11 +528,15 @@ footer {
   height: 100%;
 
   background-color: rgba(33, 150, 243, 0.9);
+
   transform: translateY(100%);
   transition: 250ms ease;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.portfolio-items .link:hover .overlay {
+  transform: translateY(0%);
+}
 .overlay .card-description {
   margin: 0;
   padding: 63px 24px;
@@ -551,6 +567,9 @@ footer {
   outline: 1px solid #eeeeee;
   margin-bottom: 30px;
 }
+.portfolio-items .link {
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .portfolio-items .link:hover,
 .portfolio-items .link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
@@ -569,12 +588,16 @@ footer {
   height: 100%;
 
   background-color: rgba(0, 0, 0, 0.5);
+
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   width: 528px;
   height: 581px;
@@ -587,6 +610,9 @@ footer {
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
 }
 .modal-button {
   position: absolute;
