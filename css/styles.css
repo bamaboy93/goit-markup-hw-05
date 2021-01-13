@@ -200,6 +200,8 @@ header {
 .filter-buttons .button:focus {
   color: var(--white-bg-color);
   background-color: var(--accent-color);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .button.primary {
@@ -534,7 +536,8 @@ footer {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio-items .link:hover .overlay {
+.portfolio-items .link:hover .overlay,
+.portfolio-items .link:focus .overlay {
   transform: translateY(0%);
 }
 .overlay .card-description {
